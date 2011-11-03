@@ -1,3 +1,9 @@
+# revision 21472
+# category Package
+# catalog-ctan /macros/latex/contrib/enumitem-zref
+# catalog-date 2011-02-19 16:41:47 +0100
+# catalog-license lppl1.3
+# catalog-version 1.8
 Name:		texlive-enumitem-zref
 Version:	1.8
 Release:	1
@@ -53,6 +59,7 @@ command).
 %doc %{_texmfdistdir}/source/latex/enumitem-zref/enumitem-zref.drv
 %doc %{_texmfdistdir}/source/latex/enumitem-zref/enumitem-zref.dtx
 %doc %{_texmfdistdir}/source/latex/enumitem-zref/enumitem-zref.ins
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -63,3 +70,5 @@ command).
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
