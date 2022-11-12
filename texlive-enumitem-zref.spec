@@ -1,19 +1,13 @@
-# revision 21472
-# category Package
-# catalog-ctan /macros/latex/contrib/enumitem-zref
-# catalog-date 2011-02-19 16:41:47 +0100
-# catalog-license lppl1.3
-# catalog-version 1.8
 Name:		texlive-enumitem-zref
-Version:	1.8
-Release:	11
+Version:	21472
+Release:	1
 Summary:	Extended references to items for enumitem package
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/enumitem-zref
 License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enumitem-zref.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enumitem-zref.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enumitem-zref.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enumitem-zref.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enumitem-zref.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/enumitem-zref.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -32,12 +26,12 @@ provided to make reference names (including the standard \label
 command).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -52,24 +46,11 @@ command).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.8-2
-+ Revision: 751472
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.8-1
-+ Revision: 718338
-- texlive-enumitem-zref
-- texlive-enumitem-zref
-- texlive-enumitem-zref
-- texlive-enumitem-zref
-
