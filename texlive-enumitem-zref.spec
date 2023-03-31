@@ -1,6 +1,6 @@
 Name:		texlive-enumitem-zref
 Version:	21472
-Release:	1
+Release:	2
 Summary:	Extended references to items for enumitem package
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/enumitem-zref
